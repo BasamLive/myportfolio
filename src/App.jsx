@@ -32,7 +32,7 @@ const App = () => {
   );
   // the filtered word that we are going to pass to the List
   const searchedStories = stories.filter((story) =>
-    story.title.includes(searchTerm)
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
   useEffect(() => {
     localStorage.setItem("search", searchTerm);
