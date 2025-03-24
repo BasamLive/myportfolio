@@ -1,0 +1,9 @@
+.para {
+  background: linear-gradient(to right, #f00, #00f);
+  background-clip: text;
+  color: transparent;
+}
+
+.title {
+  font-family: "Arial";
+}
