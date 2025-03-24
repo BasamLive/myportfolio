@@ -1,9 +1,46 @@
-.para {
-  background: linear-gradient(to right, #f00, #00f);
-  background-clip: text;
-  color: transparent;
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .title {
   font-family: "Arial";
+  color: white;
+}
+.search-title {
+  font-family: "Arial";
+  color: #4bffbb;
+}
+
+.list-item {
+  text-decoration: none;
+  list-style: none;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.react {
+  text-decoration: none;
+  background: linear-gradient(to right, #f00, #00f);
+  background-clip: text;
+  color: transparent;
+}
+.redux {
+  text-decoration: none;
+  background: linear-gradient(to right, #0f0, #ff0);
+  background-clip: text;
+  color: transparent;
+}
+main {
+  width: 100vw;
+  background: #777;
+  padding: 20px 10px;
 }

@@ -39,18 +39,18 @@ const App = () => {
   }, [searchTerm]);
 
   return (
-    <>
+    <main>
       <h1 className="title">Hacker stories</h1>
       <Search onSearch={handleSearch} />
       <List list={searchedStories} />
-    </>
+    </main>
   );
 };
 
 const Search = ({ onSearch }) => {
   return (
     <>
-      <h1>This is where the search component start</h1>
+      <h1 className="search-title">This is where the search component start</h1>
       <label htmlFor="search">Search:</label>
       <input id="search" type="text" onChange={onSearch} />
     </>
@@ -67,7 +67,7 @@ const List = ({ list }) => {
 };
 const Item = (props) => {
   return (
-    <li>
+    <li className={props.item.title == "React" ? "react" : "redux"}>
       <span>
         <a href={props.item.url}>{props.item.title}</a>
       </span>
