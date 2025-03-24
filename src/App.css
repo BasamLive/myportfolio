@@ -35,7 +35,7 @@ main {
 }
 .redux {
   text-decoration: none;
-  background: linear-gradient(to right, #0f0, #ff0);
+  background: linear-gradient(to right, #ff0, #f33f05);
   background-clip: text;
   color: transparent;
 }
