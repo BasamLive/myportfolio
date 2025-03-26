@@ -1,6 +1,15 @@
 import React from "react";
+import data from "./languages.js";
 
 const AssemblyEndgame = () => {
+  const languages = data.map((chip) => (
+    <span
+      className="chip"
+      style={{ background: chip.backgroundColor, color: chip.color }}
+    >
+      {chip.name}
+    </span>
+  ));
   return (
     <main>
       <header>
@@ -14,6 +23,7 @@ const AssemblyEndgame = () => {
         <h2>You win</h2>
         <p>Well done!</p>
       </section>
+      <section className="languages">{languages}</section>
     </main>
   );
 };
