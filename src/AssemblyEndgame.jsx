@@ -1,6 +1,5 @@
 import React from "react";
 import { languages } from "./languages.js";
-import { SassColor } from "sass";
 
 const AssemblyEndgame = () => {
   const languageElements = languages.map((lang, index) => {
