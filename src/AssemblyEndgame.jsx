@@ -5,7 +5,7 @@ const AssemblyEndgame = () => {
   const languageElements = languages.map((lang, index) => {
     const styles = {
       background: lang.backgroundColor,
-      SassColor: lang.color,
+      color: lang.name == "Python" || lang.name == "JavaScript" ? "#000" : null,
     };
     return (
       <span className="chip" key={index} style={styles}>
