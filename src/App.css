@@ -50,7 +50,9 @@ section.game-status > h2 {
 
 section.language-chips {
   display: flex;
+
   flex-wrap: wrap;
+  gap: 5px;
   justify-content: center;
   max-width: 350px;
 }
@@ -58,5 +60,4 @@ section.language-chips {
 span.chip {
   border-radius: 3px;
   padding: 4.5px;
-  margin: 4px;
 }
