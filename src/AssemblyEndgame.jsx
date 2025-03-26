@@ -3,11 +3,18 @@ import { languages } from "./languages.js";
 
 const AssemblyEndgame = () => {
   const [currentWord, setCurrentWord] = useState("React");
+  const [guessedLetter, setGuessedLetter] = useState([]);
+  console.log(guessedLetter);
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const handleClick = (letter) => {
+    setGuessedLetter((c) => (c.includes(letter) ? c : [...c, letter]));
+  };
 
-  const keyboardletter = alphabet
-    .split("")
-    .map((key, i) => <button key={i}>{key.toUpperCase()}</button>);
+  const keyboardletter = alphabet.split("").map((key, i) => (
+    <button key={i} onClick={() => handleClick(key)}>
+      {key.toUpperCase()}
+    </button>
+  ));
 
   const languageElements = languages.map((lang, index) => {
     const styles = {
@@ -40,6 +47,7 @@ const AssemblyEndgame = () => {
       <section className="language-chips">{languageElements}</section>
       <section className="word">{letterElement}</section>
       <section className="keyboard">{keyboardletter}</section>
+      <button className="new-game">New Game</button>
     </main>
   );
 };
