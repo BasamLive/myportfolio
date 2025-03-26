@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { languages } from "./languages.js";
 
 const AssemblyEndgame = () => {
+  const [currentWord, setCurrentWord] = useState("React");
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  const keyboardletter = alphabet
+    .split("")
+    .map((key, i) => <button key={i}>{key.toUpperCase()}</button>);
+
   const languageElements = languages.map((lang, index) => {
     const styles = {
       background: lang.backgroundColor,
@@ -13,6 +20,10 @@ const AssemblyEndgame = () => {
       </span>
     );
   });
+  const letterElement = currentWord.split("").map((letter, index) => {
+    return <span key={index}>{letter.toUpperCase()}</span>;
+  });
+
   return (
     <main>
       <header>
@@ -27,6 +38,8 @@ const AssemblyEndgame = () => {
         <p>Well done!</p>
       </section>
       <section className="language-chips">{languageElements}</section>
+      <section className="word">{letterElement}</section>
+      <section className="keyboard">{keyboardletter}</section>
     </main>
   );
 };
