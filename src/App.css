@@ -1,72 +1,49 @@
-body {
-  padding: 0;
-  margin: 0;
+* {
   box-sizing: border-box;
 }
 
-main {
+body {
+  margin: 0;
+  font-family: "Hankken Grotesk", Arial, sans-serif;
+  background: #262626;
+  color: #d9d9d9;
+  padding: 20px;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
-.title {
-  font-family: "Arial";
-  color: white;
-}
-.search-title {
-  font-family: "Arial";
-  color: #4bffbb;
-}
-
-.list-item {
-  text-decoration: none;
-  list-style: none;
-  font-family: monospace;
-  font-weight: bold;
-}
-
-.react {
-  text-decoration: none;
-  background: linear-gradient(to right, #f00, #00f);
-  background-clip: text;
-  color: transparent;
-}
-.redux {
-  text-decoration: none;
-  background: linear-gradient(to right, #ff0, #f33f05);
-  background-clip: text;
-  color: transparent;
-}
-main {
-  width: 100vw;
-  background: #0f0;
-  padding: 20px 10px;
-}
-.counter-container {
+header {
   text-align: center;
 }
 
-.counter-container .counter-display {
-  color: white;
-  font-size: 2em;
-  padding: 0;
-  margin: 0;
+header > h1 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #f9f9da;
 }
 
-.counter-container button {
-  padding: 5px 10px;
-  border: none;
-  margin: 4px;
-  border-radius: 5px;
-  background: #f08;
-  color: #fff;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
+header > p {
+  font-size: 0.875rem;
+  max-width: 350px;
+  color: #9e8e8e;
 }
 
-.counter-container p span {
-  color: black;
-  font-family: arial;
+section.game-status {
+  background: #10a958;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f9f3da;
+  border-radius: 4px;
+  margin-block: 30px;
+}
+
+section.game-status > p {
+  margin: 5px;
+}
+
+section.game-status > h2 {
+  font-size: 1.25rem;
+  margin: 5px;
 }
