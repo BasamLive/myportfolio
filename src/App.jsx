@@ -43,6 +43,7 @@ const App = () => {
       <h1 className="title">Hacker stories</h1>
       <Search onSearch={handleSearch} />
       <List list={searchedStories} />
+      <Counter />
     </main>
   );
 };
@@ -77,4 +78,34 @@ const Item = (props) => {
     </li>
   );
 };
+const Counter = () => {
+  let [count, setCount] = useState(0);
+
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+  const handleReset = () => {
+    setCount((count = 0));
+  };
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+  return (
+    <div className="counter-container">
+      <p className="counter-display">
+        Count: <span>{count}</span>
+      </p>
+      <button className="decrement" onClick={handleDecrement}>
+        Decrement
+      </button>
+      <button className="reast" onClick={handleReset}>
+        Reset
+      </button>
+      <button className="increment" onClick={handleIncrement}>
+        Increment
+      </button>
+    </div>
+  );
+};
+
 export default App;
