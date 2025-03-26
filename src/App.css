@@ -48,15 +48,15 @@ section.game-status > h2 {
   margin: 5px;
 }
 
-.languages {
-  max-width: 35px;
+section.language-chips {
   display: flex;
-  flex-direction: row-wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 350px;
 }
 
-.chip {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-  padding: 10px 5px;
+span.chip {
+  border-radius: 3px;
+  padding: 4.5px;
+  margin: 4px;
 }

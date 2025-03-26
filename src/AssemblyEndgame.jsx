@@ -1,15 +1,19 @@
 import React from "react";
-import data from "./languages.js";
+import { languages } from "./languages.js";
+import { SassColor } from "sass";
 
 const AssemblyEndgame = () => {
-  const languages = data.map((chip) => (
-    <span
-      className="chip"
-      style={{ background: chip.backgroundColor, color: chip.color }}
-    >
-      {chip.name}
-    </span>
-  ));
+  const languageElements = languages.map((lang, index) => {
+    const styles = {
+      background: lang.backgroundColor,
+      SassColor: lang.color,
+    };
+    return (
+      <span className="chip" key={index} style={styles}>
+        {lang.name}
+      </span>
+    );
+  });
   return (
     <main>
       <header>
@@ -23,7 +27,7 @@ const AssemblyEndgame = () => {
         <h2>You win</h2>
         <p>Well done!</p>
       </section>
-      <section className="languages">{languages}</section>
+      <section className="language-chips">{languageElements}</section>
     </main>
   );
 };
