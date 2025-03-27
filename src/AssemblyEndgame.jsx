@@ -3,9 +3,9 @@ import { languages } from "./languages.js";
 import { clsx } from "clsx";
 
 const AssemblyEndgame = () => {
-  const [currentWord, setCurrentWord] = useState("React");
+  const [currentWord, setCurrentWord] = useState("react");
   const [guessedLetter, setGuessedLetter] = useState([]);
-  console.log(guessedLetter);
+
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const handleClick = (letter) => {
     setGuessedLetter((c) => (c.includes(letter) ? c : [...c, letter]));
@@ -19,7 +19,7 @@ const AssemblyEndgame = () => {
       correct: isCorrect,
       wrong: isWrong,
     });
-    console.log(className);
+    console.log({ letter, isGuessed, isCorrect, isWrong });
     return (
       <button
         className={className}
@@ -42,9 +42,10 @@ const AssemblyEndgame = () => {
       </span>
     );
   });
-  const letterElement = currentWord.split("").map((letter, index) => {
-    return <span key={index}>{letter.toUpperCase()}</span>;
+  const letterElement = currentWord.split("").map((letter) => {
+    return <span key={letter}>{letter.toUpperCase()}</span>;
   });
+  console.log(letterElement[2]);
 
   return (
     <main>
