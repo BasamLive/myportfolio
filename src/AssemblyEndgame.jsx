@@ -6,6 +6,11 @@ const AssemblyEndgame = () => {
   const [currentWord, setCurrentWord] = useState("react");
   const [guessedLetter, setGuessedLetter] = useState([]);
 
+  const wrongGuessCount = guessedLetter.filter(
+    (letter) => !currentWord.includes(letter)
+  ).length;
+  console.log(wrongGuessCount);
+
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const handleClick = (letter) => {
     setGuessedLetter((c) => (c.includes(letter) ? c : [...c, letter]));
@@ -19,7 +24,7 @@ const AssemblyEndgame = () => {
       correct: isCorrect,
       wrong: isWrong,
     });
-    console.log({ letter, isGuessed, isCorrect, isWrong });
+
     return (
       <button
         className={className}
@@ -32,18 +37,27 @@ const AssemblyEndgame = () => {
   });
 
   const languageElements = languages.map((lang, index) => {
+    const isLanguageLost = index < wrongGuessCount;
     const styles = {
       background: lang.backgroundColor,
       color: lang.name == "Python" || lang.name == "JavaScript" ? "#000" : null,
     };
     return (
-      <span className="chip" key={index} style={styles}>
+      <span
+        className={`chip ${isLanguageLost ? "lost" : ""}`}
+        key={index}
+        style={styles}
+      >
         {lang.name}
       </span>
     );
   });
   const letterElement = currentWord.split("").map((letter) => {
-    return <span key={letter}>{letter.toUpperCase()}</span>;
+    return (
+      <span key={letter}>
+        {guessedLetter.includes(letter) ? letter.toUpperCase() : ""}
+      </span>
+    );
   });
   console.log(letterElement[2]);
 
