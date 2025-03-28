@@ -9,7 +9,11 @@ const AssemblyEndgame = () => {
   const wrongGuessCount = guessedLetter.filter(
     (letter) => !currentWord.includes(letter)
   ).length;
-  console.log(wrongGuessCount);
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => guessedLetter.includes(letter));
+  const isGameLost = wrongGuessCount >= languages.length - 1;
+  const isGameOver = isGameWon || isGameLost;
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const handleClick = (letter) => {
@@ -59,7 +63,10 @@ const AssemblyEndgame = () => {
       </span>
     );
   });
-  console.log(letterElement[2]);
+  const gameStatusClass = clsx("game-status", {
+    won: isGameWon,
+    lost: isGameLost,
+  });
 
   return (
     <main>
@@ -70,14 +77,26 @@ const AssemblyEndgame = () => {
           from Assembly
         </p>
       </header>
-      <section className="game-status">
-        <h2>You win</h2>
-        <p>Well done!</p>
+
+      <section className={gameStatusClass}>
+        {isGameOver ? (
+          isGameWon ? (
+            <>
+              <h2>You win</h2>
+              <p>Well done!</p>
+            </>
+          ) : (
+            <>
+              <h2>Game over</h2>
+              <p>You lose! Better start learning Assembly 😭</p>
+            </>
+          )
+        ) : null}
       </section>
       <section className="language-chips">{languageElements}</section>
       <section className="word">{letterElement}</section>
       <section className="keyboard">{keyboardletter}</section>
-      <button className="new-game">New Game</button>
+      {isGameOver && <button className="new-game">New Game</button>}
     </main>
   );
 };
