@@ -132,3 +132,17 @@ button.new-game {
   margin-inline: auto;
   cursor: pointer;
 }
+
+.game-starter {
+  padding: 20px 40px;
+  border: none;
+  position: relative;
+  top: 50;
+  bottom: 50;
+  background: #047272;
+  color: white;
+  border-radius: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  font-family: arial;
+}
